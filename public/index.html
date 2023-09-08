@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #wrapper * {
+        margin-bottom: 1rem;
+      }
+
+      #notification-bar
+       {
+        font-size: 2rem;
+        background-color: yellowgreen;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 0 1rem;
+      }
+    </style>
+    <link rel="icon" href="data:,">
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div>
+        <label>Segmentation tag</label>
+        <input id="segmentation-tag-input" type="text" />
+      </div>
+
+      <div>
+        <button id="subscribe-push-manager-button">Subscribe to push manager</button>
+      </div>
+    </div>
+
+    <div id="notification-bar"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
