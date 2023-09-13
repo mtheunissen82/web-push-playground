@@ -70,7 +70,9 @@ subscribePushManagerButton.addEventListener("click", async (event) => {
 
   const subscriptionContainer = { subscription, segmentationTags };
 
-  console.log(`Push subscription details: ${JSON.stringify(subscriptionContainer)}`);
+  console.log(
+    `Push subscription details: ${JSON.stringify(subscriptionContainer)}`,
+  );
 
   // send the push subscription including the segmentation tags to the backend
   const response = await fetch("/push-subscription", {
