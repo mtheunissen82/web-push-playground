@@ -33,3 +33,11 @@ If needed you can regenerate a fresh VAPID keypair with `npx web-push generate-v
 - [MDN Using Service Worker Guide](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [Service worker lifecycle](https://web.dev/service-worker-lifecycle/)
 - [Mozilla blog: Sending VAPID webpush notifications](https://blog.mozilla.org/services/2016/08/23/sending-vapid-identified-webpush-notifications-via-mozillas-push-service/)
+
+## Notes
+
+![Sending a push message](/notes/sending-a-push-message.png)
+
+![Registration and subscription](/notes/registration-and-subscription.png)
+
+![Sending a push message](/notes/sending-a-push-message.png)
