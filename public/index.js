@@ -38,7 +38,9 @@ navigator.serviceWorker.addEventListener("message", (event) => {
 const subscribePushManagerButton = document.getElementById(
   "subscribe-push-manager-button",
 );
-const segmentationTagInput = document.getElementById("segmentation-tag-input");
+const segmentationTagsInput = document.getElementById(
+  "segmentation-tags-input",
+);
 const notificationBarElement = document.getElementById("notification-bar");
 
 const printMessageInNotificationBar = (message) => {
@@ -51,7 +53,15 @@ const printMessageInNotificationBar = (message) => {
 subscribePushManagerButton.addEventListener("click", async (event) => {
   console.log('Clicking the "Subscribe to push manager" button');
 
-  const segmentationTag = segmentationTagInput.value || "*";
+  // format comma separated tag values
+  const segmentationTags = segmentationTagsInput.value
+    .split(",")
+    .map((item) => item.trim())
+    .filter((item) => !!item);
+
+  console.log(
+    `Segmentation tags are set to: ${JSON.stringify(segmentationTags)}`,
+  );
 
   const registration = await navigator.serviceWorker.ready;
   const subscription = await registration.pushManager.subscribe({
@@ -63,7 +73,7 @@ subscribePushManagerButton.addEventListener("click", async (event) => {
 
   const response = await fetch("/push-subscription", {
     method: "POST",
-    body: JSON.stringify({ subscription, segmentationTag }),
+    body: JSON.stringify({ subscription, segmentationTags }),
     headers: {
       "Content-Type": "application/json",
     },
