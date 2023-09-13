@@ -59,21 +59,23 @@ subscribePushManagerButton.addEventListener("click", async (event) => {
     .map((item) => item.trim())
     .filter((item) => !!item);
 
-  console.log(
-    `Segmentation tags are set to: ${JSON.stringify(segmentationTags)}`,
-  );
-
+  // wait for the service worker to be "ready"
   const registration = await navigator.serviceWorker.ready;
+
+  // subscribe to push server
   const subscription = await registration.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: vapidPublicKey,
   });
 
-  console.log(`Push subscription details: ${JSON.stringify(subscription)}`);
+  const subscriptionContainer = { subscription, segmentationTags };
 
+  console.log(`Push subscription details: ${JSON.stringify(subscriptionContainer)}`);
+
+  // send the push subscription including the segmentation tags to the backend
   const response = await fetch("/push-subscription", {
     method: "POST",
-    body: JSON.stringify({ subscription, segmentationTags }),
+    body: JSON.stringify(subscriptionContainer),
     headers: {
       "Content-Type": "application/json",
     },
