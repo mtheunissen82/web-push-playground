@@ -36,7 +36,7 @@ If needed you can regenerate a fresh VAPID keypair with `npx web-push generate-v
 
 ## Notes
 
-![Sending a push message](/notes/sending-a-push-message.png)
+![What is a service worker](/notes/what-is-a-service-worker.png)
 
 ![Registration and subscription](/notes/registration-and-subscription.png)
 
