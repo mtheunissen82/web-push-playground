@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "start": "node lib/server.js",
+    "start": "node --require dotenv/config lib/server.js",
     "format": "npx prettier --write **/**.js"
   },
   "dependencies": {
     "@fastify/static": "^6.11.0",
+    "dotenv": "^16.3.1",
     "fastify": "^4.22.2",
     "web-push": "^3.6.5"
   },
